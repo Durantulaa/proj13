@@ -1,7 +1,7 @@
 #include <iostream>
-using namespace std;
-
 #include "list.h"
+
+using namespace std;
 
 int main() {
   List *lst1 = new List;
@@ -23,7 +23,6 @@ int main() {
   cout << endl << endl << endl;
 
   delete lst1;
-  
   return 0;
 }
 

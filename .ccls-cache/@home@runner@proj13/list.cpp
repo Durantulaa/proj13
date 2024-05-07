@@ -67,6 +67,8 @@ void List::PrintRev(node *cur) {
 
   } // check
 
+//reason print and get length works is because when we initialize the list, it starts at null then next is the item value then next after is the incoming item value
+
   void List::PrintRev() {
     // node *cur = head;
 
@@ -75,13 +77,16 @@ void List::PrintRev(node *cur) {
     //   cur = cur->next;
     // }
     PrintRev(head);
-  } // not done
+  }     //goes to next, then prints
+} // null[10]next [9]next [8]next [7]next [6]next [5]next null
 
   int List::GetLength(node * cur) {
     if (cur == NULL)
       return 0;
     return GetLength(cur->next) + 1;
   } // done
+
+// null[head]next [item1]next [item2]next
 
   int List::GetLength() {
 
@@ -95,15 +100,45 @@ void List::PrintRev(node *cur) {
     }
 
     return length;
-  } // done
+  } // null[10]next [9]next [8]next [7]next [6]next [5]next null
+//cur is the list parameter
+//everytime we reach the else statment, we go to the next part of the list and add 1 to the return type
 
-  void List::Destructor(node * cur) {
+  void List::Destructor(node* cur) {
     // if (cur == NULL)
     //   cout << "Destructor isn't running\n";
-
+    
     while (cur != NULL) {
       Destructor(cur->next);
+      delete cur;
     }
-    // cout << "Destructor is running" << endl;
-    delete cur;
+     //cout << "Destructor is running" << endl;
   } // test
+// null[10]next [9]next [8]next [7]next [6]next [5]next null
+// goes to next, then deletes, and so on
+
+// void List::Print( )
+// {}
+
+// void Print(node* cur)
+// {}
+
+// void List::PrintRev( )
+// {}
+
+// void PrintRev(node* cur)
+// {}
+
+// int List::GetLength()
+// { return 0; }
+
+// int GetLength(node* cur)
+// { return 0; }
+
+// List::~List()
+// {}
+
+// void Destructor(node* cur)
+// {
+//  cout << "Destructor is running" << endl;
+// }
